@@ -1,6 +1,8 @@
 from playwright.sync_api import sync_playwright
 import json
 import time
+import os
+
 
 def record_session(target_url):
     captured_steps = []
@@ -90,7 +92,21 @@ def record_session(target_url):
 
     return captured_steps
 
+
 if __name__ == "__main__":
     steps = record_session("https://www.saucedemo.com")
-    print("\n--- Final Captured Steps ---")
+
+    output = {
+        "name": "SauceDemo Login and Checkout Flow",
+        "target_url": "https://www.saucedemo.com",
+        "steps": steps
+    }
+
+    os.makedirs("automation/recordings", exist_ok=True)
+    output_path = "automation/recordings/session_1.json"
+    with open(output_path, "w") as f:
+        json.dump(output, f, indent=2)
+
+    print(f"\n--- Final Captured Steps ---")
     print(json.dumps(steps, indent=2))
+    print(f"\nSaved {len(steps)} steps to {output_path}")
