@@ -2,6 +2,9 @@ from playwright.sync_api import sync_playwright
 import json
 import time
 import os
+import requests
+
+API_BASE = "http://127.0.0.1:5000"
 
 
 def record_session(target_url):
@@ -93,20 +96,48 @@ def record_session(target_url):
     return captured_steps
 
 
+def save_to_backend(auth_token, name, target_url, steps):
+    headers = {"Authorization": f"Bearer {auth_token}"}
+
+    tc_response = requests.post(
+        f"{API_BASE}/testcases",
+        headers=headers,
+        json={"name": name, "target_url": target_url, "description": "Recorded via automation/recorder.py"}
+    )
+    tc_response.raise_for_status()
+    test_case_id = tc_response.json()["test_case_id"]
+    print(f"Created test case {test_case_id}")
+
+    steps_response = requests.post(
+        f"{API_BASE}/testcases/{test_case_id}/steps",
+        headers=headers,
+        json={"steps": steps}
+    )
+    steps_response.raise_for_status()
+    print(f"Saved: {steps_response.json()['message']}")
+
+    return test_case_id
+
+
 if __name__ == "__main__":
     steps = record_session("https://www.saucedemo.com")
+    print(f"\nCaptured {len(steps)} steps.")
 
     output = {
         "name": "SauceDemo Login and Checkout Flow",
         "target_url": "https://www.saucedemo.com",
         "steps": steps
     }
-
     os.makedirs("automation/recordings", exist_ok=True)
-    output_path = "automation/recordings/session_1.json"
-    with open(output_path, "w") as f:
+    with open("automation/recordings/session_1.json", "w") as f:
         json.dump(output, f, indent=2)
+    print("Saved local backup copy to automation/recordings/session_1.json")
 
-    print(f"\n--- Final Captured Steps ---")
-    print(json.dumps(steps, indent=2))
-    print(f"\nSaved {len(steps)} steps to {output_path}")
+    AUTH_TOKEN = input("\nPaste your JWT token (from Postman login): ").strip()
+
+    save_to_backend(
+        auth_token=AUTH_TOKEN,
+        name="SauceDemo Login and Checkout Flow",
+        target_url="https://www.saucedemo.com",
+        steps=steps
+    )

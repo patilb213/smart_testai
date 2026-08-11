@@ -20,7 +20,49 @@
       ],
       "page_url": "https://www.saucedemo.com/",
       "step_order": 1,
-      "timestamp": 1786431794.5801854
+      "timestamp": 1786436411.8911023
+    },
+    {
+      "action_type": "input",
+      "candidate_locators": [
+        {
+          "strategy": "id",
+          "value": "#user-name"
+        },
+        {
+          "strategy": "name",
+          "value": "user-name"
+        },
+        {
+          "strategy": "css",
+          "value": "input.input_error.form_input"
+        }
+      ],
+      "input_value": "standars",
+      "page_url": "https://www.saucedemo.com/",
+      "step_order": 2,
+      "timestamp": 1786436411.8986554
+    },
+    {
+      "action_type": "input",
+      "candidate_locators": [
+        {
+          "strategy": "id",
+          "value": "#user-name"
+        },
+        {
+          "strategy": "name",
+          "value": "user-name"
+        },
+        {
+          "strategy": "css",
+          "value": "input.input_error.form_input"
+        }
+      ],
+      "input_value": "standar",
+      "page_url": "https://www.saucedemo.com/",
+      "step_order": 3,
+      "timestamp": 1786436411.9026773
     },
     {
       "action_type": "input",
@@ -40,8 +82,8 @@
       ],
       "input_value": "standard_user",
       "page_url": "https://www.saucedemo.com/",
-      "step_order": 2,
-      "timestamp": 1786431794.5881784
+      "step_order": 4,
+      "timestamp": 1786436411.906768
     },
     {
       "action_type": "click",
@@ -60,8 +102,8 @@
         }
       ],
       "page_url": "https://www.saucedemo.com/",
-      "step_order": 3,
-      "timestamp": 1786431794.5905259
+      "step_order": 5,
+      "timestamp": 1786436411.9138765
     },
     {
       "action_type": "input",
@@ -80,51 +122,9 @@
         }
       ],
       "input_value": "secret",
-      "page_url": "https://www.saucedemo.com/",
-      "step_order": 4,
-      "timestamp": 1786431794.5922558
-    },
-    {
-      "action_type": "input",
-      "candidate_locators": [
-        {
-          "strategy": "id",
-          "value": "#password"
-        },
-        {
-          "strategy": "name",
-          "value": "password"
-        },
-        {
-          "strategy": "css",
-          "value": "input.input_error.form_input"
-        }
-      ],
-      "input_value": "secret_sac",
-      "page_url": "https://www.saucedemo.com/",
-      "step_order": 5,
-      "timestamp": 1786431794.59484
-    },
-    {
-      "action_type": "input",
-      "candidate_locators": [
-        {
-          "strategy": "id",
-          "value": "#password"
-        },
-        {
-          "strategy": "name",
-          "value": "password"
-        },
-        {
-          "strategy": "css",
-          "value": "input.input_error.form_input"
-        }
-      ],
-      "input_value": "",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 6,
-      "timestamp": 1786431794.5986283
+      "timestamp": 1786436411.919147
     },
     {
       "action_type": "input",
@@ -142,10 +142,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "secret",
+      "input_value": "secret_s",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 7,
-      "timestamp": 1786431794.6032145
+      "timestamp": 1786436411.9315827
     },
     {
       "action_type": "input",
@@ -166,7 +166,7 @@
       "input_value": "secret_sauce",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 8,
-      "timestamp": 1786431794.606104
+      "timestamp": 1786436411.9413533
     },
     {
       "action_type": "click",
@@ -186,7 +186,7 @@
       ],
       "page_url": "https://www.saucedemo.com/",
       "step_order": 9,
-      "timestamp": 1786431794.6098206
+      "timestamp": 1786436411.9549608
     },
     {
       "action_type": "submit",
@@ -198,7 +198,7 @@
       ],
       "page_url": "https://www.saucedemo.com/",
       "step_order": 10,
-      "timestamp": 1786431794.6124792
+      "timestamp": 1786436411.966503
     },
     {
       "action_type": "click",
@@ -222,18 +222,18 @@
       ],
       "page_url": "https://www.saucedemo.com/inventory.html",
       "step_order": 11,
-      "timestamp": 1786431794.6191041
+      "timestamp": 1786436411.97351
     },
     {
       "action_type": "click",
       "candidate_locators": [
         {
           "strategy": "id",
-          "value": "#add-to-cart-sauce-labs-bolt-t-shirt"
+          "value": "#add-to-cart-sauce-labs-fleece-jacket"
         },
         {
           "strategy": "name",
-          "value": "add-to-cart-sauce-labs-bolt-t-shirt"
+          "value": "add-to-cart-sauce-labs-fleece-jacket"
         },
         {
           "strategy": "text",
@@ -246,7 +246,7 @@
       ],
       "page_url": "https://www.saucedemo.com/inventory.html",
       "step_order": 12,
-      "timestamp": 1786431794.6230388
+      "timestamp": 1786436411.9830704
     },
     {
       "action_type": "click",
@@ -262,7 +262,7 @@
       ],
       "page_url": "https://www.saucedemo.com/inventory.html",
       "step_order": 13,
-      "timestamp": 1786431794.628907
+      "timestamp": 1786436411.988632
     },
     {
       "action_type": "click",
@@ -286,7 +286,7 @@
       ],
       "page_url": "https://www.saucedemo.com/cart.html",
       "step_order": 14,
-      "timestamp": 1786431794.6402736
+      "timestamp": 1786436411.9959543
     },
     {
       "action_type": "click",
@@ -306,7 +306,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 15,
-      "timestamp": 1786431794.6449096
+      "timestamp": 1786436412.001805
     },
     {
       "action_type": "input",
@@ -324,10 +324,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "Test",
+      "input_value": "fusrt",
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 16,
-      "timestamp": 1786431794.647671
+      "timestamp": 1786436412.0054655
     },
     {
       "action_type": "click",
@@ -347,7 +347,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 17,
-      "timestamp": 1786431794.6507294
+      "timestamp": 1786436412.01044
     },
     {
       "action_type": "input",
@@ -365,10 +365,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "User",
+      "input_value": "name",
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 18,
-      "timestamp": 1786431794.655921
+      "timestamp": 1786436412.0169144
     },
     {
       "action_type": "click",
@@ -388,7 +388,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 19,
-      "timestamp": 1786431794.6601408
+      "timestamp": 1786436412.021735
     },
     {
       "action_type": "input",
@@ -406,31 +406,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "123",
+      "input_value": "52626",
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 20,
-      "timestamp": 1786431794.6629622
-    },
-    {
-      "action_type": "input",
-      "candidate_locators": [
-        {
-          "strategy": "id",
-          "value": "#postal-code"
-        },
-        {
-          "strategy": "name",
-          "value": "postalCode"
-        },
-        {
-          "strategy": "css",
-          "value": "input.input_error.form_input"
-        }
-      ],
-      "input_value": "12345",
-      "page_url": "https://www.saucedemo.com/checkout-step-one.html",
-      "step_order": 21,
-      "timestamp": 1786431794.6671598
+      "timestamp": 1786436412.0301256
     },
     {
       "action_type": "click",
@@ -449,8 +428,8 @@
         }
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
-      "step_order": 22,
-      "timestamp": 1786431794.6719759
+      "step_order": 21,
+      "timestamp": 1786436412.039251
     },
     {
       "action_type": "submit",
@@ -465,8 +444,8 @@
         }
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
-      "step_order": 23,
-      "timestamp": 1786431794.6756155
+      "step_order": 22,
+      "timestamp": 1786436412.0442579
     },
     {
       "action_type": "click",
@@ -489,8 +468,8 @@
         }
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-two.html",
-      "step_order": 24,
-      "timestamp": 1786431794.6794665
+      "step_order": 23,
+      "timestamp": 1786436412.052795
     }
   ]
 }
