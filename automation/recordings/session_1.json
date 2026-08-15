@@ -20,7 +20,7 @@
       ],
       "page_url": "https://www.saucedemo.com/",
       "step_order": 1,
-      "timestamp": 1786436411.8911023
+      "timestamp": 1786439778.806449
     },
     {
       "action_type": "input",
@@ -38,10 +38,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "standars",
+      "input_value": "standard",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 2,
-      "timestamp": 1786436411.8986554
+      "timestamp": 1786439778.8130543
     },
     {
       "action_type": "input",
@@ -59,10 +59,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "standar",
+      "input_value": "standard_",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 3,
-      "timestamp": 1786436411.9026773
+      "timestamp": 1786439778.816983
     },
     {
       "action_type": "input",
@@ -83,7 +83,19 @@
       "input_value": "standard_user",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 4,
-      "timestamp": 1786436411.906768
+      "timestamp": 1786439778.820474
+    },
+    {
+      "action_type": "click",
+      "candidate_locators": [
+        {
+          "strategy": "css",
+          "value": "form"
+        }
+      ],
+      "page_url": "https://www.saucedemo.com/",
+      "step_order": 5,
+      "timestamp": 1786439778.824244
     },
     {
       "action_type": "click",
@@ -102,8 +114,8 @@
         }
       ],
       "page_url": "https://www.saucedemo.com/",
-      "step_order": 5,
-      "timestamp": 1786436411.9138765
+      "step_order": 6,
+      "timestamp": 1786439778.8302588
     },
     {
       "action_type": "input",
@@ -123,29 +135,8 @@
       ],
       "input_value": "secret",
       "page_url": "https://www.saucedemo.com/",
-      "step_order": 6,
-      "timestamp": 1786436411.919147
-    },
-    {
-      "action_type": "input",
-      "candidate_locators": [
-        {
-          "strategy": "id",
-          "value": "#password"
-        },
-        {
-          "strategy": "name",
-          "value": "password"
-        },
-        {
-          "strategy": "css",
-          "value": "input.input_error.form_input"
-        }
-      ],
-      "input_value": "secret_s",
-      "page_url": "https://www.saucedemo.com/",
       "step_order": 7,
-      "timestamp": 1786436411.9315827
+      "timestamp": 1786439778.8360252
     },
     {
       "action_type": "input",
@@ -166,7 +157,7 @@
       "input_value": "secret_sauce",
       "page_url": "https://www.saucedemo.com/",
       "step_order": 8,
-      "timestamp": 1786436411.9413533
+      "timestamp": 1786439778.8410273
     },
     {
       "action_type": "click",
@@ -186,7 +177,7 @@
       ],
       "page_url": "https://www.saucedemo.com/",
       "step_order": 9,
-      "timestamp": 1786436411.9549608
+      "timestamp": 1786439778.846737
     },
     {
       "action_type": "submit",
@@ -198,7 +189,7 @@
       ],
       "page_url": "https://www.saucedemo.com/",
       "step_order": 10,
-      "timestamp": 1786436411.966503
+      "timestamp": 1786439778.854458
     },
     {
       "action_type": "click",
@@ -222,18 +213,18 @@
       ],
       "page_url": "https://www.saucedemo.com/inventory.html",
       "step_order": 11,
-      "timestamp": 1786436411.97351
+      "timestamp": 1786439778.872878
     },
     {
       "action_type": "click",
       "candidate_locators": [
         {
           "strategy": "id",
-          "value": "#add-to-cart-sauce-labs-fleece-jacket"
+          "value": "#add-to-cart-sauce-labs-bike-light"
         },
         {
           "strategy": "name",
-          "value": "add-to-cart-sauce-labs-fleece-jacket"
+          "value": "add-to-cart-sauce-labs-bike-light"
         },
         {
           "strategy": "text",
@@ -246,7 +237,7 @@
       ],
       "page_url": "https://www.saucedemo.com/inventory.html",
       "step_order": 12,
-      "timestamp": 1786436411.9830704
+      "timestamp": 1786439778.881249
     },
     {
       "action_type": "click",
@@ -262,7 +253,7 @@
       ],
       "page_url": "https://www.saucedemo.com/inventory.html",
       "step_order": 13,
-      "timestamp": 1786436411.988632
+      "timestamp": 1786439778.8880067
     },
     {
       "action_type": "click",
@@ -286,7 +277,7 @@
       ],
       "page_url": "https://www.saucedemo.com/cart.html",
       "step_order": 14,
-      "timestamp": 1786436411.9959543
+      "timestamp": 1786439778.8948045
     },
     {
       "action_type": "click",
@@ -306,7 +297,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 15,
-      "timestamp": 1786436412.001805
+      "timestamp": 1786439778.900714
     },
     {
       "action_type": "input",
@@ -324,10 +315,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "fusrt",
+      "input_value": "wwww",
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 16,
-      "timestamp": 1786436412.0054655
+      "timestamp": 1786439778.9073818
     },
     {
       "action_type": "click",
@@ -347,7 +338,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 17,
-      "timestamp": 1786436412.01044
+      "timestamp": 1786439778.9293644
     },
     {
       "action_type": "input",
@@ -365,10 +356,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "name",
+      "input_value": "www",
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 18,
-      "timestamp": 1786436412.0169144
+      "timestamp": 1786439778.9754443
     },
     {
       "action_type": "click",
@@ -388,7 +379,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 19,
-      "timestamp": 1786436412.021735
+      "timestamp": 1786439779.1626444
     },
     {
       "action_type": "input",
@@ -406,10 +397,10 @@
           "value": "input.input_error.form_input"
         }
       ],
-      "input_value": "52626",
+      "input_value": "1234",
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 20,
-      "timestamp": 1786436412.0301256
+      "timestamp": 1786439779.181625
     },
     {
       "action_type": "click",
@@ -429,7 +420,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 21,
-      "timestamp": 1786436412.039251
+      "timestamp": 1786439779.1875038
     },
     {
       "action_type": "submit",
@@ -445,7 +436,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-one.html",
       "step_order": 22,
-      "timestamp": 1786436412.0442579
+      "timestamp": 1786439779.192629
     },
     {
       "action_type": "click",
@@ -469,7 +460,7 @@
       ],
       "page_url": "https://www.saucedemo.com/checkout-step-two.html",
       "step_order": 23,
-      "timestamp": 1786436412.052795
+      "timestamp": 1786439779.1981018
     }
   ]
 }
