@@ -3,27 +3,20 @@ import json
 import time
 import os
 import requests
-
 API_BASE = "http://127.0.0.1:5000"
-
-
 def record_session(target_url):
     captured_steps = []
     step_counter = {"count": 0}
-
     def handle_event(event_data):
         step_counter["count"] += 1
         event_data["step_order"] = step_counter["count"]
         event_data["timestamp"] = time.time()
         captured_steps.append(event_data)
         print(f"Captured step {step_counter['count']}: {event_data['action_type']} on {event_data.get('candidate_locators')}")
-
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
-
         page.expose_function("recordEvent", handle_event)
-
         page.add_init_script("""
             function getLocators(el) {
                 const locators = [];
@@ -75,7 +68,6 @@ def record_session(target_url):
                     });
                 }
             }, true);
-
             document.addEventListener("submit", (e) => {
                 window.recordEvent({
                     action_type: "submit",

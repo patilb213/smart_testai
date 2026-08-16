@@ -61,3 +61,21 @@ def add_steps(testcase_id):
         ip_address=request.remote_addr
     )
     return jsonify({"message": f"{len(created)} steps added"}), 201
+
+
+@testcase_bp.route("/<int:testcase_id>/steps", methods=["GET"])
+@token_required
+def get_steps(testcase_id):
+    steps = TestStep.query.filter_by(test_case_id=testcase_id).order_by(TestStep.step_order).all()
+    result = [
+        {
+            "id": s.id,
+            "step_order": s.step_order,
+            "action_type": s.action_type,
+            "candidate_locators": s.candidate_locators,
+            "input_value": s.input_value,
+            "page_url": s.page_url,
+        }
+        for s in steps
+    ]
+    return jsonify(result), 200
