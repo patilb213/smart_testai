@@ -32,8 +32,9 @@ class TestStep(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     test_case_id = db.Column(db.Integer, db.ForeignKey("test_cases.id"), nullable=False)
     step_order = db.Column(db.Integer, nullable=False)
-    action_type = db.Column(db.String(50), nullable=False)  # click / input / select / submit
-    candidate_locators = db.Column(db.JSON)  # list of {strategy, value} dicts
+    action_type = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(255))
+    candidate_locators = db.Column(db.JSON)
     input_value = db.Column(db.String(255))
     page_url = db.Column(db.String(255))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)

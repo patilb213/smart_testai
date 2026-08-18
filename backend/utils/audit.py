@@ -4,7 +4,6 @@ from datetime import datetime
 from models.models import db, AuditLog
 
 def write_audit_log(action, user, entity_type, entity_id=None, before_state=None, after_state=None, ip_address=None):
-    # Get the last log entry to chain the hash
     last_entry = AuditLog.query.order_by(AuditLog.id.desc()).first()
     previous_hash = last_entry.hash if last_entry else "0" * 64
 

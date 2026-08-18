@@ -13,11 +13,6 @@ export const getTestCases = (token) =>
     headers: { Authorization: `Bearer ${token}` },
   });
 
-export const getTestCaseSteps = (token, testCaseId) =>
-  axios.get(`${API_BASE}/testcases/${testCaseId}/steps`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-
 export const getStepsForTestCase = (token, testCaseId) =>
   axios.get(`${API_BASE}/testcases/${testCaseId}/steps`, {
     headers: { Authorization: `Bearer ${token}` },

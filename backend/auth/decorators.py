@@ -2,7 +2,9 @@ from functools import wraps
 from flask import request, jsonify
 import jwt
 import os
+
 SECRET_KEY = os.environ.get("JWT_SECRET", "dev-secret-change-this")
+
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):

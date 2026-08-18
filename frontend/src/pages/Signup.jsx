@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { login } from "../api";
+import { signup } from "../api";
 
-export default function Login() {
+export default function Signup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,11 +15,10 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      const res = await login(email, password);
-      localStorage.setItem("token", res.data.token);
-      navigate("/dashboard");
+      await signup(name, email, password);
+      navigate("/login");
     } catch (err) {
-      setError("Invalid email or password");
+      setError(err.response?.data?.error || "Signup failed");
     } finally {
       setLoading(false);
     }
@@ -27,10 +27,20 @@ export default function Login() {
   return (
     <div className="login-wrap">
       <div className="login-card">
-        <h1>ChangeGuard AI</h1>
-        <p className="subtitle">Sign in to your workspace</p>
+        <h1>Create Account</h1>
+        <p className="subtitle">Join ChangeGuard AI</p>
 
         <form onSubmit={handleSubmit}>
+          <div className="field-group">
+            <label className="field-label">Full Name</label>
+            <input
+              className="input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+              required
+            />
+          </div>
           <div className="field-group">
             <label className="field-label">Email</label>
             <input
@@ -57,12 +67,12 @@ export default function Login() {
           {error && <div className="alert alert-danger">{error}</div>}
 
           <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={loading}>
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
 
         <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "var(--color-text-secondary)" }}>
-          Don't have an account? <Link to="/signup" style={{ color: "var(--color-primary)" }}>Sign up</Link>
+          Already have an account? <Link to="/login" style={{ color: "var(--color-primary)" }}>Sign in</Link>
         </p>
       </div>
     </div>

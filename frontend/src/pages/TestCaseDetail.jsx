@@ -30,7 +30,7 @@ export default function TestCaseDetail() {
 
       <div className="page-container">
         <div className="card">
-          <h3>Test Case #{id} — Recorded Steps</h3>
+          <h3>Test Case #{id} — Step-by-Step Recording</h3>
           {error && <div className="alert alert-danger">{error}</div>}
           {loading && <p style={{ color: "var(--color-text-secondary)" }}>Loading...</p>}
 
@@ -43,25 +43,21 @@ export default function TestCaseDetail() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Action</th>
+                  <th>What happened</th>
+                  <th>Type</th>
                   <th>Locators</th>
-                  <th>Value</th>
-                  <th>Page</th>
                 </tr>
               </thead>
               <tbody>
                 {steps.map((s) => (
                   <tr key={s.id} style={{ cursor: "default" }}>
                     <td>{s.step_order}</td>
+                    <td style={{ fontWeight: 500 }}>{s.description || "—"}</td>
                     <td><span className="badge badge-active">{s.action_type}</span></td>
                     <td>
                       {s.candidate_locators?.map((l, i) => (
                         <span key={i} className="locator-chip">{l.strategy}: {l.value}</span>
                       ))}
-                    </td>
-                    <td>{s.input_value || "—"}</td>
-                    <td style={{ fontSize: 12, color: "var(--color-text-secondary)", wordBreak: "break-all" }}>
-                      {s.page_url}
                     </td>
                   </tr>
                 ))}
