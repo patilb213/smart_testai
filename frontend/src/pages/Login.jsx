@@ -25,10 +25,14 @@ export default function Login() {
   };
 
   return (
-    <div className="login-wrap">
-      <div className="login-card">
-        <h1>ChangeGuard AI</h1>
-        <p className="subtitle">Sign in to your workspace</p>
+    <div className="login-shell">
+      <div className="login-panel">
+        <div className="brand" style={{ marginBottom: 20 }}>
+          <div className="brand-badge"><span className="brand-dot"></span></div>
+          <span className="brand-title">ChangeGuard AI</span>
+        </div>
+        <div className="login-title">Sign in to your workspace</div>
+        <div className="login-subtitle">Regression testing platform</div>
 
         <form onSubmit={handleSubmit}>
           <div className="field-group">
@@ -54,15 +58,15 @@ export default function Login() {
             />
           </div>
 
-          {error && <div className="alert alert-danger">{error}</div>}
+          {error && <div className="alert alert-danger" style={{ marginBottom: 16 }}>{error}</div>}
 
-          <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={loading}>
+          <button type="submit" className="btn btn-primary btn-glow" style={{ width: "100%" }} disabled={loading}>
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
-        <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "var(--color-text-secondary)" }}>
-          Don't have an account? <Link to="/signup" style={{ color: "var(--color-primary)" }}>Sign up</Link>
+        <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "var(--text-secondary)" }}>
+          Don't have an account? <Link to="/signup" className="link-accent">Sign up</Link>
         </p>
       </div>
     </div>

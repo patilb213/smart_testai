@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTestCases } from "../api";
-
 export default function Dashboard() {
   const [testCases, setTestCases] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
-
   const [recTargetUrl, setRecTargetUrl] = useState("https://www.wikipedia.org");
   const [recName, setRecName] = useState("");
   const [recMessage, setRecMessage] = useState("");
   const [recording, setRecording] = useState(false);
   const [recLog, setRecLog] = useState([]);
-
   const loadTestCases = () => {
     setLoading(true);
     getTestCases(token)
@@ -22,12 +19,10 @@ export default function Dashboard() {
       .catch(() => setError("Failed to load test cases"))
       .finally(() => setLoading(false));
   };
-
   useEffect(() => {
     loadTestCases();
     // eslint-disable-next-line
   }, [token]);
-
   useEffect(() => {
     if (!recording) return;
     const interval = setInterval(async () => {
@@ -88,26 +83,34 @@ export default function Dashboard() {
   const uniqueSites = new Set(testCases.map((tc) => tc.target_url)).size;
 
   return (
-    <div>
-      <div className="app-header">
+    <div className="layout-shell">
+      <header className="app-header">
         <div className="brand">
-          <span className="brand-dot"></span>
-          ChangeGuard AI
+          <div className="brand-badge"><span className="brand-dot"></span></div>
+          <span className="brand-title">ChangeGuard AI</span>
+          <span className="version-pill">v2.0 Regression Engine</span>
         </div>
         <button className="btn btn-secondary" onClick={logout}>Logout</button>
-      </div>
+      </header>
 
-      <div className="page-container">
-        <div className="hero-banner">
-          <h1>🎬 Smart Test Recording Studio</h1>
-          <p>
-            Record real user actions on any live website — no scripting required.
-            Every action is captured, timestamped, and permanently logged in a
-            tamper-evident audit trail.
-          </p>
-        </div>
+      <main className="page-container">
+        {error && <div className="alert alert-danger">{error}</div>}
 
-        <div className="stats-row">
+        <section className="glass-card hero-section">
+          <div className="hero-content">
+            <div className="title-row">
+              <span className="tag-pill">Dashboard</span>
+              <h1 className="page-title">Smart Test Recording Studio</h1>
+            </div>
+            <p className="page-subtitle">
+              Record real user actions on any live website — no scripting required.
+              Every action is captured, timestamped, and permanently logged in a
+              tamper-evident audit trail.
+            </p>
+          </div>
+        </section>
+
+        <div className="stats-row" style={{ marginTop: 24 }}>
           <div className="stat-card">
             <div className="stat-value">{testCases.length}</div>
             <div className="stat-label">Total Test Cases</div>
@@ -122,10 +125,14 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {error && <div className="alert alert-danger">{error}</div>}
+        <section className="card" style={{ marginTop: 24 }}>
+          <div className="card-header-row">
+            <div>
+              <h3 className="card-heading">Record a New Test Case</h3>
+              <p className="card-subheading">Enter a name and a real target URL, then start recording.</p>
+            </div>
+          </div>
 
-        <div className="card">
-          <h3>🌐 Record a New Test Case</h3>
           <div style={{ display: "flex", gap: 12, alignItems: "flex-end", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: 180 }}>
               <label className="field-label">Test case name</label>
@@ -147,14 +154,14 @@ export default function Dashboard() {
                 disabled={recording}
               />
             </div>
-            <button className="btn btn-primary" onClick={startRecording} disabled={recording}>
+            <button className="btn btn-primary btn-glow" onClick={startRecording} disabled={recording}>
               {recording ? "Recording..." : "🔴 Start Recording"}
             </button>
           </div>
 
           {recording && (
             <div className="alert alert-info" style={{ marginTop: 14 }}>
-              <span className="pulse-dot"></span>
+              <span className="pulse-indicator"></span>{" "}
               Browser is open — interact with the site now (up to 60 seconds).
             </div>
           )}
@@ -172,44 +179,51 @@ export default function Dashboard() {
               ))}
             </div>
           )}
-        </div>
+        </section>
 
-        <div className="card">
-          <h3>📋 Recorded Test Cases</h3>
-          {loading && <p style={{ color: "var(--color-text-secondary)" }}>Loading...</p>}
+        <section className="card" style={{ marginTop: 24 }}>
+          <div className="card-header-row">
+            <div>
+              <h3 className="card-heading">Recorded Test Cases</h3>
+              <p className="card-subheading">Click any row to inspect steps and run regression tests.</p>
+            </div>
+            <span className="count-pill">{testCases.length} Cases</span>
+          </div>
+
+          {loading && <div className="skeleton-loader">Loading test cases...</div>}
 
           {!loading && testCases.length === 0 && (
             <div className="empty-state">No test cases recorded yet. Start one above.</div>
           )}
 
           {!loading && testCases.length > 0 && (
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Target URL</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {testCases.map((tc) => (
-                  <tr key={tc.id} onClick={() => navigate(`/testcase/${tc.id}`)}>
-                    <td>#{tc.id}</td>
-                    <td>{tc.name}</td>
-                    <td style={{ color: "var(--color-text-secondary)" }}>{tc.target_url}</td>
-                    <td><span className="badge badge-active">{tc.status}</span></td>
+            <div className="table-responsive">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Target URL</th>
+                    <th>Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {testCases.map((tc) => (
+                    <tr key={tc.id} onClick={() => navigate(`/testcase/${tc.id}`)} style={{ cursor: "pointer" }}>
+                      <td className="mono-order">#{tc.id}</td>
+                      <td className="action-title">{tc.name}</td>
+                      <td className="text-dim">{tc.target_url}</td>
+                      <td><span className="badge badge-success">{tc.status}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
-        </div>
-      </div>
+        </section>
+      </main>
 
-      <button className="fab" onClick={loadTestCases} title="Refresh test cases">
-        🔄
-      </button>
+      <button className="fab" onClick={loadTestCases} title="Refresh test cases">🔄</button>
     </div>
   );
 }

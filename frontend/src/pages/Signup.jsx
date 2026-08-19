@@ -25,54 +25,38 @@ export default function Signup() {
   };
 
   return (
-    <div className="login-wrap">
-      <div className="login-card">
-        <h1>Create Account</h1>
-        <p className="subtitle">Join ChangeGuard AI</p>
+    <div className="login-shell">
+      <div className="login-panel">
+        <div className="brand" style={{ marginBottom: 20 }}>
+          <div className="brand-badge"><span className="brand-dot"></span></div>
+          <span className="brand-title">ChangeGuard AI</span>
+        </div>
+        <div className="login-title">Create Account</div>
+        <div className="login-subtitle">Join ChangeGuard AI</div>
 
         <form onSubmit={handleSubmit}>
           <div className="field-group">
             <label className="field-label">Full Name</label>
-            <input
-              className="input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
-              required
-            />
+            <input className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" required />
           </div>
           <div className="field-group">
             <label className="field-label">Email</label>
-            <input
-              type="email"
-              className="input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@company.com"
-              required
-            />
+            <input type="email" className="input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com" required />
           </div>
           <div className="field-group">
             <label className="field-label">Password</label>
-            <input
-              type="password"
-              className="input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              required
-            />
+            <input type="password" className="input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required />
           </div>
 
-          {error && <div className="alert alert-danger">{error}</div>}
+          {error && <div className="alert alert-danger" style={{ marginBottom: 16 }}>{error}</div>}
 
-          <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={loading}>
+          <button type="submit" className="btn btn-primary btn-glow" style={{ width: "100%" }} disabled={loading}>
             {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
 
-        <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "var(--color-text-secondary)" }}>
-          Already have an account? <Link to="/login" style={{ color: "var(--color-primary)" }}>Sign in</Link>
+        <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "var(--text-secondary)" }}>
+          Already have an account? <Link to="/login" className="link-accent">Sign in</Link>
         </p>
       </div>
     </div>

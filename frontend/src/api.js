@@ -17,3 +17,22 @@ export const getStepsForTestCase = (token, testCaseId) =>
   axios.get(`${API_BASE}/testcases/${testCaseId}/steps`, {
     headers: { Authorization: `Bearer ${token}` },
   });
+
+export const runTestCase = (token, testCaseId) =>
+  axios.post(
+    `${API_BASE}/runs/start`,
+    { test_case_id: testCaseId },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+export const getTestRuns = (token, testCaseId) =>
+  axios.get(`${API_BASE}/runs/testcase/${testCaseId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+export const getRunDetail = (token, runId) =>
+  axios.get(`${API_BASE}/runs/${runId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+export const getChangeEvents = (token, testCaseId) =>
+  axios.get(`${API_BASE}/runs/testcase/${testCaseId}/changes`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });

@@ -5,6 +5,7 @@ from models.models import db
 from auth.auth_routes import auth_bp
 from routes.testcase_routes import testcase_bp
 from routes.recording_routes import recording_bp
+from routes.execution_routes import execution_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -16,10 +17,13 @@ db.init_app(app)
 app.register_blueprint(auth_bp, url_prefix="/auth")
 app.register_blueprint(testcase_bp, url_prefix="/testcases")
 app.register_blueprint(recording_bp, url_prefix="/recording")
+app.register_blueprint(execution_bp, url_prefix="/runs")
+
 
 @app.route("/")
 def hello():
     return {"status": "ok", "message": "ChangeGuard AI backend running"}
+
 
 if __name__ == "__main__":
     with app.app_context():
@@ -29,4 +33,4 @@ if __name__ == "__main__":
             db.session.commit()
         except Exception:
             db.session.rollback()
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
